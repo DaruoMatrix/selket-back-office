@@ -1,0 +1,25 @@
+<div class="col-12" *ngIf="bank" #content>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Modifier la banque</h4>
+
+
+      <form class="forms-sample" #addBankForm="ngForm" (ngSubmit)="updateBank(addBankForm,bank._id)">
+        
+        <div class="form-group">
+          <label for="exampleInputPassword1">Nom de la banque</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" 
+           [(ngModel)]="bank.name" name="name" #name="ngModel" required placeholder="Nom complet">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email de la banque</label>
+            <input type="email" class="form-control" id="exampleInputEmail1"  
+            [(ngModel)]="bank.email" name="email" #email="ngModel" placeholder="Email" required>
+          </div>
+
+        <button type="submit" class="btn btn-success mr-2">Submit</button>
+       
+      </form>
+    </div>
+  </div>
+</div>

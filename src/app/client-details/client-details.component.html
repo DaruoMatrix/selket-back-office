@@ -1,0 +1,279 @@
+
+<div class="col-md-12 grid-margin stretch-card"*ngIf="client" #content>
+
+  <div class="card">
+    <div class="card-body">
+
+        <div *ngIf="client" style="width:60%;margin-left:auto;margin-right:auto">
+            <button class="btn btn-success btn-block" (click)="DownloadPDF()">Télécharger PDF </button> 
+            <button class="btn btn-primary btn-block" routerLink="/email" (click)="callAll()">Envoyer par email </button> 
+        </div>
+        <br> <br>
+        
+        
+        <table>
+            <tr>
+              <td>Nom : </td>
+              <td>Mourad</td>
+            </tr>
+            
+          <tr>
+              <td>Prénom : </td>
+              <td>Riahi</td>
+            </tr>
+            <th>test</th>
+          <tr>
+              <td>email : </td>
+              <td>mourad@do.tn</td>
+            </tr>
+        </table>
+         
+
+
+
+      <h4 class="card-title">{{client.first_name | uppercase}} Details</h4>
+      <span class="title">Info générale : </span>  
+      <div class="row">    
+        <div class="col-md-6 text-primary">
+  
+          <p class="font-weight-bold">Nom</p>
+      
+        </div>
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.last_name}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Prénom</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.first_name}}
+          </p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">E-mail</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.email}}
+          </p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Téléphone</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.phone}}
+          </p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">CIN</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.cin}}
+          </p>
+        </div>
+          </div>
+          <span class="title">Matériel possédé : </span>
+          <div class="row">
+        <div class="col-md-6 text-primary">
+          
+          <p class="font-weight-bold">Voiture</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.material_owns.owns_car}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Propriétaire</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.material_owns.owns_house}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Colocataire</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.material_owns.tenant_house}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Prix de colocation</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.material_owns.tenant_amount}}
+          </p>
+        </div>
+
+          </div>
+          <span class="title">Statut matrimonial :</span>
+          <div class="row">
+        <div class="col-md-6 text-primary">
+          
+          <p class="font-weight-bold">Status</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.marital_status.status}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Nombre d'enfant</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.marital_status.children_number}}
+          </p>
+        </div>
+
+</div>
+<span class="title">Travail :</span>
+<div class="row">       
+   <div class="col-md-6 text-primary">
+         
+          <p class="font-weight-bold">Il a un travail</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.job.has_job}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">type de travail</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.job.job_type}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Salaire</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.job.salary}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Secteur de travail</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.job.job_sector}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Année de chômage</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.job.jobless_years}}
+          </p>
+        </div>
+        </div>
+        <span class="title">Crédit : </span>
+        <div class="row">
+        
+        <div class="col-md-6 text-primary">
+          
+          <p class="font-weight-bold">Montant du crédit demandé</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.credit.amount}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Raison du crédit</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.credit.credit_reason}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Il a un crédit en cours</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.credit.hasCredit}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Montant du crédit en cours</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.credit.credit_amount}}
+          </p>
+        </div>
+
+
+        <div class="col-md-6 text-primary">
+          <p class="font-weight-bold">Il possède un compte bancaire</p>
+        </div>
+
+        <div class="col-md-6 text-primary">
+          <p class="mb-2">
+              {{client.has_bank_account}}
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

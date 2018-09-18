@@ -1,0 +1,35 @@
+<div class="col-12" *ngIf="manager" #content>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Modifier un chef d'agence</h4>
+
+
+      <form class="forms-sample" #addManagerForm="ngForm" (ngSubmit)="UpdateManager(addManagerForm,manager._id)">
+        
+        <div class="form-group">
+          <label for="exampleInputPassword1">Nom et Prénom</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" 
+           [(ngModel)]="manager.name" name="name" #name="ngModel" required placeholder="Nom complet">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1"  
+            [(ngModel)]="manager.email" name="email" #email="ngModel" placeholder="Email" required>
+          </div>
+
+          <div class="form-group">
+              <label for="exampleFormControlSelect2">Choisir la banque </label>
+              <select class="form-control" id="exampleFormControlSelect2" name="bank_id" [(ngModel)]="bankSelected" (ngModelChange)="bankChange($event)">
+                  <option></option>
+                <option *ngFor='let bank of bankList' 
+                [ngValue]="bank._id">{{bank.name}}</option>
+              </select>
+              
+            </div>
+
+        <button type="submit" class="btn btn-success mr-2">Submit</button>
+       
+      </form>
+    </div>
+  </div>
+</div>

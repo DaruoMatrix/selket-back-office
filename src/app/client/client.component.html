@@ -1,0 +1,34 @@
+<div class="col-lg-6 grid-margin stretch-card" style="float:left">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Liste des clients</h4>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let client of clientList' [class.selected]="client === selectedClient">
+                <td>{{client.last_name}}</td>
+                <td>{{client.first_name}}</td>
+                <td class="text-success ">
+                   {{client.email}}
+                </td>
+                <td>
+                 <a (click)="onSelect(client)"><label class="badge badge-primary" >Details</label></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+<div style="float:left" class="col-lg-6 grid-margin stretch-card">
+  <app-client-details [client]="selectedClient"></app-client-details>
+    </div>

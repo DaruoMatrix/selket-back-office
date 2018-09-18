@@ -1,0 +1,38 @@
+<div class="col-lg-6 grid-margin stretch-card" style="float:left">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Liste des chefs d'agence</h4>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Banque</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let manager of managerList' [class.selected]="manager === selectedManager">
+              <td>{{manager.name}}</td>
+              <td>{{manager.email}}</td>
+              <td class="text-success "  >
+                <div *ngFor='let bank of bankList'>
+                <span *ngIf="bank._id == manager.bank_id" > {{bank.name}}</span>
+                 
+                </div>
+                
+              </td>
+              <td>
+               <a (click)="onSelect(manager)"><label class="badge badge-primary" >Modifier</label></a>
+               <a (click)="removeManager(manager._id)"><label class="badge badge-danger">Supprimer</label></a>
+               
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modify-manager [manager]="selectedManager"></app-modify-manager>
